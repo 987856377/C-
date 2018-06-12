@@ -14,6 +14,12 @@
 
 整个结构体的对齐
 整个结构体的对齐值一般是结构体中最大数据类型所占的空间，比如下面这个结构体的对齐值就是8，因为double类型占8个字节。
+
+改结构体的对齐值
+使用预处理指令
+
+#pragma pack(num)
+num是结构体的对齐值，如果num为4,则按4个字节对其,否则warning
 */
 #include<iostream>
 #include<string.h>
