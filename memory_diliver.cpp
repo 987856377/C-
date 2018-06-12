@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
-//				指针参数是传递内存
+//				pointer parameter diliver memory
 /*
 	char * GetMemory(char *str,int size)
 	{
