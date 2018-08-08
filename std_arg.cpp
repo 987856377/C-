@@ -4,16 +4,32 @@ using namespace std;
 
 int  add_nums(int count, ...){
 	int result = 0;
-	va_list args;				// ±£´æ¿É±ä²ÎÊıÊı¾İ 
-	va_start(args,count);		// Ê×¸ö¿É±ä²ÎÊıÇ°½ô½ÓµÄ¾ßÃû²ÎÊı 
+	va_list args;				// ä¿å­˜å¯å˜å‚æ•°æ•°æ® 
+	va_start(args,count);		// é¦–ä¸ªå¯å˜å‚æ•°å‰ç´§æ¥çš„å…·åå‚æ•° 
 	for(int i=0; i<count;i++){
-		result+=va_arg(args,int);// va_list ÖĞÏÂ¸ö²ÎÊıÀàĞÍµÄ±í´ïÊ½ 
+		result+=va_arg(args,int);// va_list ä¸­ä¸‹ä¸ªå‚æ•°ç±»å‹çš„è¡¨è¾¾å¼ 
 	}
 	va_end(args);
 	return result;
 }
+
+int add(int *a,int *b){
+	return *a+*b;
+}
+
+int add0(int *&a,int *&b){
+	return *a+*b;
+}
+
 int main(){
+	
 	int result = add_nums(5,1,2,3,4,5);
 	printf("%d\n",result);
+	
+	int a = 2, b = 3;
+	printf("%d\n",add(&a,&b));	// pass int
+	
+	int *q1 = &a, *q2 = &b;
+	printf("%d\n",add0(q1,q2));	// pass a pointer to int
 	return 0;
 }
